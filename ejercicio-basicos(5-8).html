@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Basicos - Ejercicios</title>
+</head>
+<body>
+	<h1>Ejercicios - Básicos</h1>
+	<script>
+
+// 5) Programa una función que invierta las palabras de una cadena de texto, pe. miFuncion("Hola Mundo") devolverá "odnuM aloH".
+
+const invertir = (palabra="") =>
+	(!palabra) 
+		? console.warn("No ha ingresado palabra")
+		: console.info(palabra.split("").reverse().join("") )
+
+invertir("hola mundo");
+invertir("En el peru las cosas esta complicadas");
+
+
+
+
+// 6) Programa una función para contar el número de veces que se repite una palabra en un texto largo, pe. miFuncion("hola mundo adios mundo", "mundo") devolverá 2.
+
+const nVeces = (frase="", buscar=undefined) =>{
+	if (!frase) return console.warn("No ha ingresado frase.");
+	if (buscar === undefined) return console.warn("No ha ingresado la palabra a buscar.");
+	const arreglo =(frase.split(" "));
+	cantidad = 0;
+	for (palabra of arreglo){
+		if (palabra === buscar){
+			cantidad++
+		}
+	}
+	console.info(`La palabra '${buscar}' se repite ${cantidad} veces.`);
+}
+nVeces("hola mundo adios mundo mundo final","mundo");
+
+
+
+
+
+// 7) Programa una función que valide si una palabra o frase dada, es un palíndromo (que se lee igual en un sentido que en otro), pe. mifuncion("Salas") devolverá true.
+
+const palindromo = (pal="") =>{
+	if (!pal) return console.warn("No ha ingresado palabra.");
+
+	let palInv = pal.split("").reverse().join("");
+	return (palInv.toUpperCase() === pal.toUpperCase())
+		? console.info("La palabra es palindromo")
+		: console.info("La palabra ingresado no es palindromo")
+}
+palindromo("reconocer")
+
+
+
+// 8) Programa una función que elimine cierto patrón de caracteres de un texto dado, pe. miFuncion("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz") devolverá  "1, 2, 3, 4 y 5.
+
+const patron = (frase2="", patron="") => {
+	if (!frase2) return console.warn("No ha ingresado cadena de caraceres.")
+	if (!patron) return console.warn("No ingresaste un patrón de caracteres.")
+
+	let reemp = new RegExp(patron,"ig"); 
+	let resultado = frase2.replace(reemp,"");
+	console.info(resultado);
+}
+patron("xyz1, xyz2, xyz3, xyz4 y xyz5","xyz");
+patron("Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit consectetur laborum porro, dicta non aut itaque blanditiis voluptates error loremillum dignissimos ab, laboriosam enim fuga. Odio aspernatur quas quibusdam commodi.","[a,e,i,o,u]")
+
+
+	</script>
+</body>
+</html>
